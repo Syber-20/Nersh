@@ -68,7 +68,7 @@ public class AddTerm {
                 }
             }
 
-            System.out.println("Term added successfully!\nMove to the directory and edit the new term");
+            System.out.println("Term added successfully!\nMove to the directory and edit the new term\nusing markdown formatting");
 
         } catch (IOException e) {
             System.err.println("An error occurred: " + e.getMessage());
