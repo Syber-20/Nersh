@@ -28,7 +28,7 @@ public class AddTerm {
                 writer.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
                 writer.write("    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\n");
                 writer.write("    <title>" + termName + " - Definition</title>\n");
-                writer.write("    <link rel=\"stylesheet\" href=\"../../styles.css\">\n"); // Link to existing CSS
+                writer.write("    <link rel=\"stylesheet\" href=\"styles.css\">\n"); // Link to existing CSS
                 writer.write("</head>\n<body>\n");
                 writer.write("    <div class=\"container\">\n"); // Container div
                 writer.write("        <header>\n"); // Header
