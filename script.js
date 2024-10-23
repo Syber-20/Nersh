@@ -1,57 +1,44 @@
-document.querySelector("#search-input").addEventListener("input", function (event) {
-  const input = event.target.value.trim();
+function showSuggestions() {
+    const input = document.getElementById('search-box').value.toLowerCase();
+    const suggestionsList = document.getElementById('suggestions-list');
+    
+    // Clear existing suggestions
+    suggestionsList.innerHTML = '';
 
-  if (input.length > 0) {
-      const firstLetter = input.charAt(0).toUpperCase();
-      const filePath = `./terms/${firstLetter}.json`;
+    if (input === '') {
+        suggestionsList.style.display = 'none';
+        return;
+    }
 
-      // Fetch the terms from the corresponding JSON file
-      fetch(filePath)
-          .then(response => {
-              if (response.ok) {
-                  return response.json();
-              } else {
-                  throw new Error('JSON file not found');
-              }
-          })
-          .then(data => {
-              const searchTerms = data.terms;
-              displaySuggestions(searchTerms, input);
-          })
-          .catch(error => {
-              console.error("Error fetching the terms: ", error);
-          });
-  } else {
-      clearSuggestions();
-  }
-});
+    // Determine the first letter of the input
+    const firstLetter = input.charAt(0);
 
-function displaySuggestions(terms, input) {
-  const suggestions = terms.filter(term => term.toLowerCase().startsWith(input.toLowerCase()));
-  const suggestionsContainer = document.querySelector("#suggestions-container");
-  suggestionsContainer.innerHTML = "";
-
-  if (suggestions.length > 0) {
-      suggestionsContainer.style.display = "block";
-      suggestions.forEach(term => {
-          const suggestionItem = document.createElement("div");
-          suggestionItem.classList.add("suggestion-item");
-          suggestionItem.textContent = term;
-
-          // Add click event to redirect to term.html
-          suggestionItem.addEventListener("click", function () {
-              window.location.href = `terms/${term}.html`;
-          });
-
-          suggestionsContainer.appendChild(suggestionItem);
-      });
-  } else {
-      suggestionsContainer.style.display = "none";
-  }
+    // Fetch the relevant JSON file based on the first letter
+    fetch(`./terms/${firstLetter}/terms.json`)
+        .then(response => response.json())
+        .then(data => {
+            const filteredTerms = data.terms.filter(term => term.toLowerCase().startsWith(input));
+            
+            if (filteredTerms.length > 0) {
+                filteredTerms.forEach(term => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = term;
+                    listItem.onclick = () => selectTerm(term);
+                    suggestionsList.appendChild(listItem);
+                });
+                suggestionsList.style.display = 'block';
+            } else {
+                suggestionsList.style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading terms:', error);
+            suggestionsList.style.display = 'none';
+        });
 }
 
-function clearSuggestions() {
-  const suggestionsContainer = document.querySelector("#suggestions-container");
-  suggestionsContainer.innerHTML = "";
-  suggestionsContainer.style.display = "none";
+function selectTerm(term) {
+    // Redirect to the term.html file in the term folder
+    const firstLetter = term.charAt(0).toLowerCase();
+    window.location.href = `./terms/${firstLetter}/${term}.html`;
 }

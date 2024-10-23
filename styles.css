@@ -72,3 +72,51 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.term-definition {
+    background-color: #303134; /* Background for definition section */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.term-definition h2 {
+    color: #34a853; /* Green heading for 'Definition' */
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.term-definition p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #e8eaed;
+}
+
+/* Footer specific for term pages */
+footer p {
+    margin-top: 30px;
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+/* Responsive adjustments for the term page */
+@media (max-width: 768px) {
+    .term-definition h2 {
+        font-size: 28px;
+    }
+
+    .term-definition p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .term-definition h2 {
+        font-size: 24px;
+    }
+
+    .term-definition p {
+        font-size: 14px;
+    }
+}

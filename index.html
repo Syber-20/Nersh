@@ -3,18 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nersh Search Engine</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Nersh Search</h1>
+    <div class="container">
+        <header>
+            <h1>Nersh</h1>
+        </header>
         <div class="search-container">
-            <input type="text" id="search-input" placeholder="Search for tech terms...">
-            <div id="suggestions-container"></div>
+            <form action="#">
+                <input type="text" id="search-box" class="search-box" placeholder="Search for code, docs, and programming tips" autocomplete="off" oninput="showSuggestions()">
+                <ul id="suggestions-list" class="suggestions-list"></ul>
+                <div class="buttons">
+                    <button type="submit" class="search-button">Nersh Search</button>
+                    <button type="button" class="feeling-lucky-button">I'm Feeling Nerdy</button>
+                </div>
+            </form>
         </div>
-    </header>
-
+        <footer>
+            <p>Search engine for programmers and tech nerds</p>
+        </footer>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
