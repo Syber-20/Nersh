@@ -1,3 +1,0 @@
-# IT
-
-Information Technology

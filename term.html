@@ -1,45 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Term Details</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Term</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
+    <header>
+        <a href="index.html"><img src="assets/search-icon.png" alt="Back to search" class="back-icon"></a>
+        <h1 id="term-title">Tech Term</h1>
+    </header>
 
-    <div class="searched">
-        <div id="term-content"></div> <!-- Where the markdown content will be displayed -->
-        <!-- <div id="term-navigation">
-            <button id="prev-term">Previous</button>
-            <button id="next-term">Next</button>
-        </div> -->
-    </div>
+    <section id="term-content">
+        <h2>What is Tech Term?</h2>
+        <p>Here goes the detailed description of the term.</p>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script>
-        // Function to fetch and render markdown content
-        async function loadMarkdown(termName) {
-            let firstLetter = termName.charAt(0).toLowerCase();  // Get the first letter of the term
-            let response = await fetch(`terms/${firstLetter}/${termName}.md`);  // Construct the path
-
-            if (response.ok) {
-                let markdown = await response.text();
-                document.getElementById('term-content').innerHTML = marked.parse(markdown);
-            } else {
-                document.getElementById('term-content').innerHTML = 'Term Description Not Available';
-            }
-        }
-
-        // Get the term name from URL
-        let params = new URLSearchParams(window.location.search);
-        let termName = params.get('term');
-
-        // Load the corresponding markdown file
-        loadMarkdown(termName);
-    </script>
+    <section id="related-term">
+        <h3>Related Term</h3>
+        <a href="relatedTerm.html">Related Tech Term</a>
+    </section>
 </body>
-
 </html>
