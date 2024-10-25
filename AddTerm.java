@@ -9,7 +9,8 @@ public class AddTerm {
             return;
         }
 
-        String termName = args[0];
+        // Replace spaces with underscores in the term name
+        String termName = args[0].replace(" ", "_");
         String termDescription = args[1];
         String firstLetter = termName.substring(0, 1).toLowerCase();
         String termsDirectory = "terms/" + firstLetter + "/";
