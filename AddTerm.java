@@ -9,9 +9,9 @@ public class AddTerm {
             return;
         }
 
-        // Replace spaces with underscores in the term name
-        String termName = args[0].replace(" ", "_");
-        String termDescription = args[1];
+        // Fix for multi-word descriptions
+        String termName = args[0].replace(" ", "_").trim(); // Trim to remove any trailing spaces
+        String termDescription = String.join(" ", Arrays.copyOfRange(args, 1, args.length)).trim(); // Trim description
         String firstLetter = termName.substring(0, 1).toLowerCase();
         String termsDirectory = "terms/" + firstLetter + "/";
         String markdownFilePath = termsDirectory + termName.toLowerCase() + ".html";
@@ -39,17 +39,14 @@ public class AddTerm {
             }
 
             // Read and update the JSON file
-            List<String> termsList = new ArrayList<>();
+            Set<String> termsSet = new HashSet<>(); // Use Set to prevent duplicates
             if (new File(jsonFilePath).exists()) {
-                // Read the existing terms from the JSON file
                 try (BufferedReader reader = new BufferedReader(new FileReader(jsonFilePath))) {
                     String line;
                     StringBuilder jsonContent = new StringBuilder();
                     while ((line = reader.readLine()) != null) {
                         jsonContent.append(line);
                     }
-
-                    // Parse the JSON content
                     String content = jsonContent.toString();
                     int startIndex = content.indexOf("[") + 1;
                     int endIndex = content.indexOf("]");
@@ -57,15 +54,19 @@ public class AddTerm {
                     
                     if (!termsString.isEmpty()) {
                         String[] existingTerms = termsString.replace("\"", "").split(",");
-                        termsList.addAll(Arrays.asList(existingTerms));
+                        for (String term : existingTerms) {
+                            termsSet.add(term.trim()); // Add trimmed terms to the set
+                        }
                     }
                 }
             }
 
-            // Add new term to the list if not already present
-            if (!termsList.contains(termName)) {
-                termsList.add(termName);
-            }
+            // Add new term to the set if not already present
+            termsSet.add(termName); // Set automatically handles duplicates
+
+            // Convert Set to a sorted list
+            List<String> termsList = new ArrayList<>(termsSet);
+            Collections.sort(termsList); // Sort for consistency
 
             // Write updated terms to JSON file
             try (BufferedWriter jsonWriter = new BufferedWriter(new FileWriter(jsonFilePath))) {
@@ -81,7 +82,7 @@ public class AddTerm {
             System.out.println("Term added successfully!");
 
         } catch (IOException e) {
-            System.err.println("An error occurred: " + e.getMessage());
+            System.err.println("An error occurred while processing files: " + e.getMessage());
         }
     }
 }
