@@ -10,23 +10,35 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>nersh</h1>
-        </header>
-        <div class="search-container">
-            <form action="#">
-                <input type="text" id="search-box" class="search-box" placeholder="search like a nerd... "autocomplete="off" oninput="showSuggestions()">
-                <ul id="suggestions-list" class="suggestions-list"></ul>
-                <div class="buttons">
-                    <button type="submit" class="search-button">nersh-it</button>
-                    <button type="button" class="feeling-lucky-button">feeling nerdy!</button>
-                </div>
-            </form>
+        <header class="head">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#nerdy">Feeling nerdy!</a>
+            <a href="#newsfeed">Newsfeed</a>
+        </nav>
+    </header>
+        <div class="nersh-bruce">
+            <header>
+                <h1>nersh</h1>
+            </header>
+            <div class="search-container">
+                <form action="#">
+                    <input type="text" id="search-box" class="search-box" placeholder="search like a nerd... "autocomplete="off" oninput="showSuggestions()">
+                    <ul id="suggestions-list" class="suggestions-list"></ul>
+                    <div class="buttons">
+                        <button type="submit" class="search-button">nersh-it</button>
+                        <!-- <button type="button" class="feeling-lucky-button">feeling nerdy!</button> -->
+                    </div>
+                </form>
+            </div>
         </div>
         <footer>
-            <p>Search engine for programmers and tech nerds</p>
+            <p><a href="">Privacy</a></p>
+            <p><a href="">Contact</a></p>
+            <p><a href="">Docs</a></p>
+            <p><a href="">Copyright</a></p>
         </footer>
-    </div>
+        </div>
     <script src="script.js"></script>
 </body>
 </html>
