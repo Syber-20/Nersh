@@ -1,120 +1,175 @@
 /* General styles */
 body {
-    background-color: #202124;
-    color: #e8eaed;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  background-color: #202124;
+  color: #e8eaed;
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("./2o7GnrpJPTyM80Cq8jyxCaV4YUP.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container .head {
+  background-color: rgba(127, 255, 212, 0.199);
+  padding: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.container .head nav {
+  margin-left: 70%;
+  font-size: 20px;
+}
+.container .head a:hover {
+    text-transform: lowercase;
+  /* text-transform: lowercase; */
+  /* text-decoration: none; */
+  /* color: rgba(255, 255, 255, 0.575); */
+}
+.container .head nav a {
+  color: white;
+  margin: 0px 15px;
+  /* text-decoration: none; */
+  font-weight: bold;
 }
 
 /* Container */
 .container {
-    text-align: center;
+  text-align: center;
+}
+.container .nersh-bruce {
+  background-color: rgba(72, 71, 97, 0.637);
+  /* opacity: 0.4; */
+  padding: 100px;
+  /* border-width: 0.2px; */
+  /* border-color: ; */
+  /* border-style: solid; */
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 0px #201f1f;
 }
 
 /* Header (Brand) */
 header h1 {
-    font-size: 60px;
-    font-weight: bold;
-    color: #34a853;
+  font-size: 60px;
+  font-weight: bold;
+  color: #34a853;
 }
 
 /* Search box styling */
 .search-container {
-    margin-top: 20px;
-    position: relative;
+  margin-top: 20px;
+  position: relative;
 }
 
 .search-box {
-    width: 400px;
-    height: 40px;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 20px;
-    border: none;
-    outline: none;
+  width: 400px;
+  height: 40px;
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: rgba(245, 245, 245, 0.589);
 }
 
 /* Suggestions list */
 .suggestions-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #303134;
-    width: 400px;
-    border-radius: 10px;
-    position: absolute;
-    top: 60px; /* Positioned above the search bar */
-    z-index: 1;
-    display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #303134;
+  width: 400px;
+  border-radius: 10px;
+  position: absolute;
+  top: 60px; /* Positioned above the search bar */
+  z-index: 1;
+  display: none;
 }
 
 .suggestions-list li {
-    padding: 10px;
-    cursor: pointer;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .suggestions-list li:hover {
-    background-color: #3c4043;
+  background-color: #3c4043;
 }
 
 /* Buttons styling */
 .buttons {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 button {
-    background-color: #3c4043;
-    color: #e8eaed;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #3c4043;
+  color: #e8eaed;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
-
+/* .container .nersh-bruce .search-container input{
+transition: all 0.3s ease;
+}
+.container .nersh-bruce .search-container input:hover{
+    background-color: #fbbc05;
+} */
 button:hover {
-    background-color: #5f6368;
+  background-color: #5f6368;
 }
 
 .search-button {
-    background-color: #1a73e8;
+  background-color: #1a73e8;
 }
 
 .feeling-lucky-button {
-    background-color: #fbbc05;
+  background-color: #fbbc05;
 }
 
 /* Footer styling */
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5rem;
+}
+footer a{
+    color: white;
+}
+footer a:hover{
+    text-transform: lowercase;
+}
 footer p {
-    margin-top: 30px;
-    color: #9aa0a6;
+  margin-top: 30px;
+  color: #9aa0a6;
 }
 
 /* Responsiveness */
 @media (max-width: 768px) {
-    .search-box {
-        width: 300px;
-    }
+  .search-box {
+    width: 300px;
+  }
 
-    .suggestions-list {
-        width: 300px;
-    }
+  .suggestions-list {
+    width: 300px;
+  }
 }
 
 @media (max-width: 480px) {
-    .search-box {
-        width: 200px;
-    }
+  .search-box {
+    width: 200px;
+  }
 
-    .suggestions-list {
-        width: 200px;
-    }
+  .suggestions-list {
+    width: 200px;
+  }
 
-    header h1 {
-        font-size: 48px;
-    }
+  header h1 {
+    font-size: 48px;
+  }
 }
