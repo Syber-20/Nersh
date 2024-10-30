@@ -1,8 +1,8 @@
 function showSuggestions() {
-    const input = document.getElementById('search-box').value; // No need to convert to lowercase here
+    const input = document.getElementById('search-box').value;
     const suggestionsList = document.getElementById('suggestions-list');
+    const maxSuggestions = 5; // Limit suggestions
 
-    // Clear existing suggestions
     suggestionsList.innerHTML = '';
 
     if (input === '') {
@@ -10,23 +10,19 @@ function showSuggestions() {
         return;
     }
 
-    // Determine the first letter of the input
-    const firstLetter = input.charAt(0).toLowerCase(); // Keep it lowercase for directory
-
-    // Fetch the relevant JSON file based on the first letter
+    const firstLetter = input.charAt(0).toLowerCase();
     fetch(`./terms/${firstLetter}/terms.json`)
         .then(response => response.json())
         .then(data => {
-            // Normalize input for filtering (e.g., remove spaces and underscores)
-            const normalizedInput = input.replace(/[_\s]/g, ''); // Remove underscores and spaces
+            const normalizedInput = input.replace(/[_\s]/g, '');
+            const filteredTerms = data.terms.filter(term =>
+                term.replace(/[_\s]/g, '').toLowerCase().startsWith(normalizedInput.toLowerCase())
+            );
 
-            const filteredTerms = data.terms.filter(term => {
-                // Normalize the term to compare with the input
-                return term.replace(/[_\s]/g, '').toLowerCase().startsWith(normalizedInput.toLowerCase());
-            });
-            
-            if (filteredTerms.length > 0) {
-                filteredTerms.forEach(term => {
+            const limitedTerms = filteredTerms.slice(0, maxSuggestions); // Limit suggestions
+
+            if (limitedTerms.length > 0) {
+                limitedTerms.forEach(term => {
                     const listItem = document.createElement('li');
                     listItem.textContent = term;
                     listItem.onclick = () => selectTerm(term);
@@ -44,8 +40,16 @@ function showSuggestions() {
 }
 
 function selectTerm(term) {
-    // Redirect to the term.html file in the term folder
-    const formattedTerm = term.toLowerCase().replace(/ /g, '_'); // Ensure correct formatting
-    const firstLetter = term.charAt(0).toLowerCase(); // Keep this in lowercase for the path
+    const formattedTerm = term.toLowerCase().replace(/ /g, '_');
+    const firstLetter = term.charAt(0).toLowerCase();
     window.location.href = `./terms/${firstLetter}/${formattedTerm}.html`;
 }
+
+// Make "nersh-it" button functional
+document.querySelector('.search-button').onclick = function(event) {
+    event.preventDefault();
+    const searchValue = document.getElementById('search-box').value.trim();
+    if (searchValue) {
+        selectTerm(searchValue);
+    }
+};
