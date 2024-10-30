@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>nersh</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header class="head">
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#nerdy">Feeling nerdy!</a>
-            <a href="#newsfeed">Newsfeed</a>
-        </nav>
-    </header>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#nerdy">Feeling nerdy!</a>
+                <a href="#newsfeed">Newsfeed</a>
+            </nav>
+        </header>
+        
         <div class="nersh-bruce">
             <header>
                 <h1>nersh</h1>
             </header>
             <div class="search-container">
                 <form action="#">
-                    <input type="text" id="search-box" class="search-box" placeholder="search like a nerd... "autocomplete="off" oninput="showSuggestions()">
+                    <input type="text" id="search-box" class="search-box" placeholder="search like a nerd..." autocomplete="off" oninput="showSuggestions()">
                     <ul id="suggestions-list" class="suggestions-list"></ul>
-                    <div class="buttons">
-                        <button type="submit" class="search-button">nersh-it</button>
-                        <!-- <button type="button" class="feeling-lucky-button">feeling nerdy!</button> -->
-                    </div>
+                    <button type="submit" class="search-button">nersh-it</button>
                 </form>
             </div>
         </div>
+
         <footer>
             <p><a href="">Privacy</a></p>
             <p><a href="">Contact</a></p>
             <p><a href="">Docs</a></p>
             <p><a href="">Copyright</a></p>
         </footer>
-        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
