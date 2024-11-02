@@ -1,8 +1,11 @@
 {
   "terms": [
-    "Abstraction",
-    "Algorithm",
+    "A-B_Testing",
     "API",
+    "ASCII",
+    "Abstraction",
+    "Agile",
+    "Algorithm",
     "Applet",
     "Array",
     "Artificial_Intelligence",
@@ -10,8 +13,6 @@
     "Asynchronous",
     "Authentication",
     "Authorization",
-    "Autonomous",
-    "Agile",
-    "ASCII"
+    "Autonomous"
   ]
 }
