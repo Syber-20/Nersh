@@ -34,7 +34,7 @@ public class AddTerm {
                 writer.write("<section class=\"term-definition\">\n");
                 writer.write("<h2>Definition</h2>\n");
                 writer.write("<p>" + termDescription + "</p>\n</section>\n");
-                writer.write("<footer><p>&copy; 2024 Nersh Tech Dictionary</p></footer>\n");
+                writer.write("<footer><p>&copy; 2024 Nersh</p></footer>\n");
                 writer.write("</div>\n</body>\n</html>");
             }
 
