@@ -34,7 +34,7 @@ header {
 }
 
 .logo {
-  font-size: 1.5em;
+  font-size: 2.5em;
   font-weight: bold;
   color: #ffffff;
   margin-left: 10px;
@@ -47,12 +47,14 @@ header {
 }
 
 .home-b, .about-b {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #ffffff;
   margin-left: 10px;
   padding-right: 15px;
   padding-left: 15px;
+  padding-top: 12px;
+  padding-bottom: 10px;
   cursor: pointer;
   border-radius: 1.2rem;
   backdrop-filter: blur(10px);
@@ -120,9 +122,10 @@ header h1 {
   height: 40px;
   padding: 10px;
   font-size: 25px;
-  border-radius: 20px 0 0 20px;
+  border-radius: 20px 20px 20px 20px;
   border: none;
   outline: none;
+  font-weight: 700;
   background-color: rgba(245, 245, 245, 0.589);
 }
 
@@ -142,10 +145,12 @@ header h1 {
 
 /* Suggestions list */
 .suggestions-list {
+  font-weight: 600;
+  font-size: 25px;
   list-style: none;
   padding: 0;
   margin: 0;
-  background-color: #303134;
+  background-color: #4a537044;
   width: 400px;
   border-radius: 10px;
   position: absolute;
@@ -157,31 +162,14 @@ header h1 {
 .suggestions-list li {
   padding: 10px;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .suggestions-list li:hover {
-  background-color: #3c4043;
+  background-color: #326c9969;
+  box-shadow: 2px ;
 }
 
-/* Footer styling */
-footer {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 5rem;
-}
-
-footer a {
-  color: white;
-}
-
-footer a:hover {
-  text-transform: lowercase;
-}
-
-footer p {
-  margin-top: 30px;
-  color: #9aa0a6;
-}
 
 /* Responsiveness */
 @media (max-width: 768px) {
