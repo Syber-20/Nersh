@@ -13,7 +13,69 @@ body {
   background-size: cover;
 }
 
+header {
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 5px rgba(227, 228, 237, 0.37);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.075);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.others {
+  justify-content: space-between;
+  display: flex;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 10px;
+  background-color: #2e5bad7e;
+  padding-right: 15px;
+  padding-left: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+  border-radius: 10% 10% 10% 10%/ 10% 10% 10% 10%;
+}
+
+.home-b {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  cursor: pointer;
+  border-radius: 1.2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 5px rgba(227, 228, 237, 0.37);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.about-b {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 10px;
+  padding-right: 15px;
+  padding-left: 15px;
+  cursor: pointer;
+  border-radius: 1.2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 0px 5px rgba(227, 228, 237, 0.37);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.18);
+}
+
 .container .head {
+  justify-content: space-between;
   background-color: rgba(127, 255, 212, 0.199);
   padding: 30px;
   position: fixed;
@@ -45,10 +107,12 @@ body {
 }
 
 .container .nersh-bruce {
-  background-color: rgba(72, 71, 97, 0.637);
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 5px rgba(227, 228, 237, 0.37);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.18);
   padding: 100px;
   border-radius: 10px;
-  box-shadow: 0px 0px 20px 0px #201f1f;
+  box-shadow: 0px 0px 20px 0px #201f1f8e;
 }
 
 /* Header (Brand) */
@@ -77,13 +141,13 @@ header h1 {
 }
 
 .search-button {
-  background-color: #1a73e8;
-  color: #e8eaed;
+  height: 40px;
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 0px 20px 20px 0px;
   border: none;
-  padding: 10px 20px;
-  border-radius: 0 20px 20px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  outline: none;
+  background-color: rgba(245, 245, 245, 0.589);
 }
 
 .search-button:hover {
