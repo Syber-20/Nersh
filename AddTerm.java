@@ -79,7 +79,7 @@ public class AddTerm {
                 jsonWriter.write("  ]\n}");
             }
 
-            System.out.println("Term added successfully!");
+            System.out.println("New term added successfully!");
 
         } catch (IOException e) {
             System.err.println("An error occurred while processing files: " + e.getMessage());
