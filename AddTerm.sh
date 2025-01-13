@@ -53,3 +53,5 @@ case $editor_choice in
 esac
 
 echo "HTML file created at $html_file_path"
+
+bash commit.sh
