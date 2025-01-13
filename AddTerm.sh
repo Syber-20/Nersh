@@ -54,4 +54,5 @@ esac
 
 echo "HTML file created at $html_file_path"
 
+# Execute the commit.sh to request for commit action
 bash commit.sh
