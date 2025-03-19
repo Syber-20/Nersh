@@ -9,8 +9,9 @@ public class AddTerm {
             return;
         }
 
-        String termName = args[0].replace(" ", "_").trim(); // Format term name
-        String firstLetter = termName.substring(0, 1).toLowerCase(); // Get first letter
+        String originalTerm = args[0].trim(); // Keep original term for JSON
+        String formattedTerm = originalTerm.replace(" ", "_"); // Format term for file name
+        String firstLetter = formattedTerm.substring(0, 1).toLowerCase(); // Get first letter
         String termsDirectory = "terms/" + firstLetter + "/"; // Directory path
         String jsonFilePath = termsDirectory + "terms.json"; // JSON file path
 
@@ -42,11 +43,11 @@ public class AddTerm {
             }
 
             // Add new term to the set if not already present
-            termsSet.add(termName); // Set automatically handles duplicates
+            termsSet.add(originalTerm); // Store original term in JSON for display purposes
 
             // Convert Set to a sorted list
             List<String> termsList = new ArrayList<>(termsSet);
-            Collections.sort(termsList); // Sort for consistency
+            Collections.sort(termsList, String.CASE_INSENSITIVE_ORDER); // Sort for consistency, case-insensitive
 
             // Write updated terms to JSON file
             try (BufferedWriter jsonWriter = new BufferedWriter(new FileWriter(jsonFilePath))) {
